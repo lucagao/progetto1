@@ -1,0 +1,59 @@
+package com.example.accessingdatamysql;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
+public class Address {
+		
+		@Id
+		@GeneratedValue(strategy = GenerationType.AUTO)
+		private Integer id;
+		
+		private String indirizzo;
+		
+		@ManyToOne(cascade = CascadeType.ALL)
+		@JsonIgnore
+		private User user;
+		
+		public Address() {
+			
+		}
+		
+		public Address(String indirizzo) {
+			super();
+			this.indirizzo = indirizzo;
+		}
+
+		public String getIndirizzo() {
+			return indirizzo;
+		}
+
+		public void setIndirizzo(String indirizzo) {
+			this.indirizzo = indirizzo;
+		}
+
+		public Integer getId() {
+			return id;
+		}
+
+		public void setId(Integer id) {
+			this.id = id;
+		}
+
+		public User getUser() {
+			return user;
+		}
+
+		public void setUser(User user) {
+			this.user = user;
+		}
+		
+		
+}

@@ -1,0 +1,23 @@
+package com.example.restservice;
+
+import java.util.ArrayList;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class FibonacciController {
+		
+	@GetMapping("/fibonacci")
+	public int fibonacci(@RequestParam( name="numero")ArrayList<Integer>numero) {
+		ArrayList<Integer> numero = new ArrayList<Integer>();
+		 
+		 for( int i = 0; i < numero ; i++) {
+			 if(numero == 0) return 0;
+			 if(numero == 1) return 1;
+			 else return fibonacci(numero -1) + fibonacci(numero-2);
+			 
+		 }
+	}
+}

@@ -1,0 +1,85 @@
+package com.example.accessingdatamysql;
+
+import java.util.LinkedList;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+
+	@Autowired
+	private UserRepository userRepository;
+
+	public User addUser(String name, String email, String telefono) {
+		return userRepository.save(new User(name, email, telefono));
+	}
+
+	public User updateUser(Integer id, String name, String email, String telefono) {
+
+		Optional<User> pUser = userRepository.findById(id);
+		if (pUser.isPresent()) {
+			User n = pUser.get();
+			n.setName(name);
+			n.setEmail(email);
+			n.setTelefono(telefono);
+			return userRepository.save(n);
+		} else {
+			return null;
+		}
+	}
+
+	public void deleteById(Integer id) {
+
+		userRepository.deleteById(id);
+	}
+
+	public User deleteByAddress(Integer id, Integer address) {
+		User u = getById(id);
+		LinkedList<Address> delCandidates = new LinkedList<Address>();
+		if (u != null) {
+			for (Address addr : u.getAddresses()) {
+				if (addr.getId().equals(address)) {
+					addr.setUser(null);
+					delCandidates.add(addr);
+				}
+			}
+			u.getAddresses().removeAll(delCandidates);
+			return userRepository.save(u);
+		} else {
+			return null;
+		}
+	}
+
+	public Iterable<User> findAll() {
+		return userRepository.findAll();
+	}
+
+	public Iterable<User> findAllWithName(String name) {
+		return userRepository.findAllByName(name);
+	}
+
+	public User getById(Integer id) {
+
+		Optional<User> pUser = userRepository.findById(id);
+		return (pUser.isPresent() ? pUser.get() : null);
+	}
+
+	public void save(User u) {
+		// TODO Auto-generated method stub
+		userRepository.save(u);
+	}
+
+	public User addAddresses(Integer userId, String indirizzo) {
+		User u = getById(userId);
+		if (u != null) {
+			Address address = new Address();
+			address.setIndirizzo(indirizzo);
+			address.setUser(u);
+			u.getAddresses().add(address);
+			return userRepository.save(u);
+		}
+		return null;
+	}
+}

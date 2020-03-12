@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.example.accessingdatamysql&apos; to &apos;gs-accessing-data-mysql-initial/src/main/java/com.example.accessingdatamysql&apos;&#x0D;&#x0A;- Original project: &apos;gs-accessing-data-mysql-complete&apos;&#x0D;&#x0A;- Destination element: &apos;gs-accessing-data-mysql-initial/src/main/java/com.example.accessingdatamysql&apos;&#x0D;&#x0A;- Original element: &apos;gs-accessing-data-mysql-complete/src/main/java/com.example.accessingdatamysql&apos;" description="Copy package" destination="=gs-accessing-data-mysql-initial/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.example.accessingdatamysql" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.example.accessingdatamysql" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1583574518237" version="1.0"/>
+</session>

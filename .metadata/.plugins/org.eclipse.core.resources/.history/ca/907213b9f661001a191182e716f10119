@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+		
+	<h1> Form</h1>
+    <form th:action="@{/form}" method="post">
+        <p>Nome: <input type="text" name="name"/></p>
+        <p>Email: <input type="text" name="email"/></p>
+        <p>Telefono: <input type="text" name="telefono"/></p>
+        <p><input type="submit" value="send"/></p>
+    </form>
+		
+		<table>
+		  <tr>
+    		<th>Name</th>
+    		<th>Email</th>
+    		<th>Telephone</th>
+  		</tr>
+       <td th:text="${user.name}"></td>
+       <td th:text="${user.email}"></td>
+       <td th:text="${user.telephone}"></td>
+       </tr>
+		</table>
+</body>
+</html>

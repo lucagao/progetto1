@@ -1,0 +1,5 @@
+package com.example.progetto.models;
+
+public class MyUserDetails {
+
+}

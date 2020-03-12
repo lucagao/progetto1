@@ -1,0 +1,5 @@
+package com.memorynotfound.spring.security.web;
+
+public class HomeController {
+
+}

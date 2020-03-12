@@ -1,0 +1,36 @@
+body {
+	text-align: center;
+}
+form {
+    display: inline-block;
+    margin-top:100px;
+    padding: 10px;
+    border: 5px solid navy;
+    box-shadow: 5px 10px #888888;
+    background-color:khaki;
+}
+table {
+
+  border-collapse: collapse;   /*  bordo collassato per permettere ulteriori effetti*/ 
+  border: 5px solid black;
+  width: 70%;
+  margin: 40px auto;
+}
+
+table tr td, table tr th {
+  padding: 10px 0;
+  text-align: center;
+} 
+
+table tr:first-child {
+  background-color: #e8bb41 !important;
+  border-bottom: 3px solid black;
+}
+
+table tr:nth-child(even) {
+  background-color: tomato;
+}
+
+table tr:nth-child(odd) {
+  background-color: lightgrey;
+}

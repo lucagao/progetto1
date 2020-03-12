@@ -1,0 +1,11 @@
+package com.example.restservice;
+
+import java.util.ArrayList;
+
+public class Fibonacci {
+    
+	int contatore;
+	ArrayList<Integer> numero;
+
+	
+}

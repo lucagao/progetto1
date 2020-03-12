@@ -1,0 +1,17 @@
+package com.example.restservice;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class FibonacciController {
+		
+	@GetMapping("/fibonacci")
+	public int fibonacci(@RequestParam( name="numero")int numero) {
+		if( numero == 1 || numero == 0) {
+			return numero;
+		}  
+		return fibonacci(numero-1) + fibonacci(numero-2);
+	}
+}

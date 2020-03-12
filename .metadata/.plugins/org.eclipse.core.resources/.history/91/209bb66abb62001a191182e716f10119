@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+		<table>
+			<tr>
+				<th>Indirizzi</th>
+			</tr>
+			<tr>
+				<td th:text=""></td>
+			</tr>
+		</table>
+</body>
+</html>

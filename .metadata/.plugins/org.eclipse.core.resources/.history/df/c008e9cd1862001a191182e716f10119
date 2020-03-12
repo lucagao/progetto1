@@ -1,0 +1,40 @@
+package com.example.accessingdatamysql;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class UserService {
+		
+	@Autowired
+	private UserRepository userRepository;
+	
+	public User addUser(String name, String email, String telefono) {
+		return userRepository.save(new User(name,email,telefono));
+	}
+	
+	public User updateUser(Integer id, String name,String email,String telefono) {
+		
+		Optional<User> pUser = userRepository.findById(id);
+		if(pUser.isPresent()) {
+		User n = pUser.get();
+		n.setName(name);
+		n.setEmail(email);
+		n.setTelefono(telefono);
+		return userRepository.save(n);
+		} else {
+		return null;
+		}
+	}
+	
+	public void deleteById(Integer id) {
+		 
+		 userRepository.deleteById(id);
+	}
+	
+	public Iterable<User> findAll() {
+		return userRepository.findAll();
+	}
+}

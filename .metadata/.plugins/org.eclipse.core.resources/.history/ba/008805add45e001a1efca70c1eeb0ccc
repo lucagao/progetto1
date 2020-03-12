@@ -1,0 +1,26 @@
+package com.example.restservice;
+
+public class Fibonacci {
+    
+	int [] array;
+
+	public Fibonacci(int[] array) {
+		super();
+		this.array = array;
+	}
+
+	public int[] getArray() {
+		return array;
+	}
+
+	public void setArray(int[] array) {
+		this.array = array;
+	}
+	
+	public int fibonacci(int f) {
+		if( f == 1 || f == 0) {
+			return f;
+		}  
+		return fibonacci(f-1) + fibonacci(f-2);
+	}
+}

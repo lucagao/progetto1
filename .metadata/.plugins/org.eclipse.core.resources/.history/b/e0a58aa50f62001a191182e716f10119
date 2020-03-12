@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+		<div>
+		<h1>Vuoi davvero eliminare?</h1>
+		<button type="button" onclick="location.href='http://www.example.com'">Si</button>
+		<button type="button" onclick="location.href='http://www.example.com'">No</button>
+		</div>
+	
+</body>
+</html>

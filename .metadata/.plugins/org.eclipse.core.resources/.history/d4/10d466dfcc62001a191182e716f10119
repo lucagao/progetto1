@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="form.css">
+</head>
+<body>
+		<table>
+			<tr>
+				<th>Indirizzi</th>
+				<th>Elimina</th>
+			</tr>
+			<tr th:each="address : ${addressList}">
+				<td th:text="${address.indirizzo}"></td>
+				<td><a  th:href= "@{/deleteAddress(address=${address})}">Elimina</a></td>
+			</tr>
+		</table>
+		<br>
+		<form th:action="@{/addIndirizzi}" method="post">
+			<input type="hidden" name="id" th:value="${id}">
+			<label for="address">Indirizzo</label>
+				<input type="text" name="address">
+				<br>
+				<input type="submit" value="invia">
+		</form>
+</body>
+</html>

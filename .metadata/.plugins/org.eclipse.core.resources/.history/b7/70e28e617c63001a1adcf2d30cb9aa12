@@ -1,0 +1,5 @@
+package com.memorynotfound.spring.security.config;
+
+public class SecurityConfig {
+
+}

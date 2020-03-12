@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+		<div>
+		<h1>Vuoi davvero eliminare?</h1>
+		<a  th:href= "@{/delete(id=${id})}"><button>Si</button></a>
+		<a  th:href="@{/form}"><button>No</button></a>
+		</div>
+	
+</body>
+</html>

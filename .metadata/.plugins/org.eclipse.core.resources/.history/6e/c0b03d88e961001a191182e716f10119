@@ -1,0 +1,17 @@
+package com.example.accessingdatamysql;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class FormController {
+		@Autowired
+		private UserRepository userRepository;
+		
+		@GetMapping("/form")
+		public String form (Model model);
+		model.addAttribute("userList", userRepository.findAll());
+		
+}

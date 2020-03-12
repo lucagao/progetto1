@@ -1,0 +1,17 @@
+package com.example.restservice;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class AverageController {
+		
+		@GetMapping("/average")
+		public int addizione(@RequestParam(name="luca", defaultValue="paolo") int operatore1, int operatore2) {
+			operatore1 = 2;
+			operatore2 = 3;
+			return operatore1+operatore2;
+		}
+	
+}
