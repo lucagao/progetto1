@@ -1,0 +1,224 @@
+package Exam;
+import java.util.*;
+public class BankApp {
+public static void main(String[] args) {
+
+    Scanner s = new Scanner(System.in);
+    Bank myBank = new Bank();
+
+    int user_choice = 2;
+
+    do {
+        //display menu to user
+        //ask user for his choice and validate it (make sure it is between 1 and 6)
+    	System.out.println("Buongiono, benvenuti in Bank");
+        System.out.println();
+        System.out.println("1) apri un conto bancario");
+        System.out.println("2) fai un versamento");
+        System.out.println("3) fai un prelievo");
+        System.out.println("4) mostra informazioni account");
+        System.out.println("5) mostra l'ultima transazione");
+        System.out.println("6) esci");
+        System.out.println();
+        System.out.print("Inserisci una scelta [1-6]: ");
+        user_choice = s.nextInt();
+        switch (user_choice) {
+            case 1: System.out.println("Inserisci nome");
+                    String cn = s.next();
+                    System.out.println("Inserisci il tuo credito");
+                    double d = s.nextDouble();
+                    System.out.println("Account creato con numero account: " + myBank.openNewAccount(cn, d));
+                    break;
+            case 2: System.out.println("Inserisci numero account");
+                    int an = s.nextInt();
+                    System.out.println("Inserisci versamento");
+                    double da = s.nextDouble();
+                    myBank.depositTo(an, da);
+                    break;
+            case 3: System.out.println("inserisci account");
+                    int acn = s.nextInt();
+                    System.out.println("inserisci prelievo");
+                    double wa = s.nextDouble();
+                    myBank.withdrawFrom(acn, wa);
+                    break;
+            case 4: System.out.println("inserisci numero account");
+                    int anum = s.nextInt();
+                    myBank.printAccountInfo(anum);
+                    break;
+           case 5:  System.out.println("inserisci numero account");
+                    anum = s.nextInt();
+                    myBank.printTransactionInfo(anum);
+                    break;
+           case 6:  System.out.println("Operazione finita");
+           			break;
+          default: System.out.println("Operazione non valida, riprovare.");
+
+        }
+}
+    while (user_choice != 6);
+
+    
+}
+}
+class Bank {
+  BankAccount[] accounts;     // all the bank accounts at this bank
+  int numOfAccounts;      // the number of bank accounts at this bank
+
+    //Constructor: A new Bank object initially doesnâ€™t contain any accounts.
+public Bank() {
+    accounts = new BankAccount[100];
+    numOfAccounts = 0;
+    }
+
+// Creates a new bank account using the customer name and the opening balance given as parameters
+// and returns the account number of this new account. It also adds this account into the account list
+// of the Bank calling object.
+public int openNewAccount(String customerName, double openingBalance) {
+
+    BankAccount b = new BankAccount(customerName, openingBalance);
+    accounts[numOfAccounts] = b;
+    numOfAccounts++;
+    return b.getAccountNum();
+}
+
+// Withdraws the given amount from the account whose account number is given. If the account is
+// not available at the bank, it should print a message.
+public void withdrawFrom(int accountNum, double amount) {
+    for (int i =0; i<numOfAccounts; i++) {
+        if (accountNum == accounts[i].getAccountNum()  ) {
+            accounts[i].withdraw(amount);
+            //System.out.println("Importo prelevato con successo");
+            return;
+        }
+    }
+    System.out.println("Numero account non trovato.");
+    }
+
+// Deposits the given amount to the account whose account number is given. If the account is not
+// available at the bank, it should print a message.
+public void depositTo(int accountNum, double amount) {
+    for (int i =0; i<numOfAccounts; i++) {
+        if (accountNum == accounts[i].getAccountNum()  ) {
+            accounts[i].deposit(amount);
+            //System.out.println("Importo versato con successo");
+            return;
+        }
+    }
+    System.out.println("Account non trovato.");
+}
+
+// Prints the account number, the customer name and the balance of the bank account whose
+// account number is given. If the account is not available at the bank, it should print a message.
+public void printAccountInfo(int accountNum) {
+    for (int i =0; i<numOfAccounts; i++) {
+                if (accountNum == accounts[i].getAccountNum()  ) {
+                    System.out.println(accounts[i].getAccountInfo());
+                    return;
+                }
+            }
+    System.out.println("Account non trovato.");
+}
+
+public void printTransactionInfo(int accountNum) {
+    for (int i =0; i<numOfAccounts; i++) {
+                if (accountNum == accounts[i].getAccountNum()  ) {
+                    System.out.println(accounts[i].getAccountInfo());
+                    System.out.println("Last transaction: " + accounts[i].getTransactionInfo(accounts[i].getNumberOfTransactions()-1));
+                    return;
+                }
+            }
+    System.out.println("Account non trovato.");
+}
+
+
+// Prints the account number, the customer number and the balance of the bank account whose
+// account number is given, together with last n transactions on that account. If the account is not
+// available at the bank, it should print a message.
+public void printAccountInfo(int accountNum, int n) {
+    for (int i =0; i<numOfAccounts; i++) {
+                        if (accountNum == accounts[i].getAccountNum()  ) {
+                            System.out.println(accounts[i].getAccountInfo());
+                            System.out.println(accounts[i].getTransactionInfo(n));
+                            return;
+                        }
+                    }
+    System.out.println("Account non trovato.");
+    }
+
+}
+class BankAccount{
+
+       private int accountNum;
+       private String customerName;
+       private double balance;
+       private double[] transactions;
+       private String[] transactionsSummary;
+       private int numOfTransactions;
+       private  static int noOfAccounts=0;
+
+       public String getAccountInfo(){
+           return "Account numbero: " + accountNum + "\nCliente Nome: " + customerName + "\nSaldo:" + balance +"\n";
+       }
+
+       public String getTransactionInfo(int n)
+       {
+            String transaction = transactionsSummary[n];
+            if (transaction == null) {
+                return "Non esiste trasanzione con quel numero";
+            }
+            else {
+                return transaction;
+            }
+        }
+
+       public BankAccount(String abc, double xyz){
+         customerName = abc;
+         balance = xyz;
+         noOfAccounts ++;
+         accountNum = noOfAccounts;
+         transactions = new double[100];
+         transactionsSummary = new String[100];
+         transactions[0] = balance;
+         transactionsSummary[0] = "Saldo : $" + Double.toString(balance) + "è stato depositato";
+         numOfTransactions = 1;
+       }
+
+    public int getAccountNum(){
+        return accountNum;
+    }
+
+    public int getNumberOfTransactions() {
+        return numOfTransactions;
+    }
+
+    public void deposit(double amount){
+
+        if (amount<=0) {
+            System.out.println("Importo deve essere positivo");
+        } else {
+            balance = balance + amount;
+            transactions[numOfTransactions] = amount;
+            transactionsSummary[numOfTransactions] = "$" + Double.toString(amount) + " sono stati versati.";
+            numOfTransactions++;
+        }
+    }
+    public void withdraw(double amount)
+    {
+        if (amount<=0){
+             System.out.println("Importo deve essere positivo");
+         }
+        else
+        {
+            if (balance < amount) {
+                System.out.println("Saldo insufficente");
+            } else {
+                balance = balance - amount;
+                transactions[numOfTransactions] = amount;
+                transactionsSummary[numOfTransactions] = "$" + Double.toString(amount) + "sono stati prelevati";
+                numOfTransactions++;
+            }
+        }
+    }
+
+    }//end of class
+

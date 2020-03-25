@@ -1,0 +1,97 @@
+package Exam;
+import java.util.*;
+import java.util.regex.*;
+public class Es7LG {
+static Scanner in;
+final static int def = 0;
+	public static void main(String[] args) {
+		
+		in = new Scanner(System.in);
+		int user_choice = 0;
+		
+		Cell phone = new Cell(0,0);
+		int k = 0;
+		while(k == def) {
+		System.out.println("Buongiono, benvenuti in Smartphone");
+        System.out.println();
+        System.out.println("1) fai una ricarica");
+        System.out.println("2) fai una chiamata");
+        System.out.println("3) controlla saldo");
+        System.out.println("4) controlla chiamate");
+        System.out.println("5) Azzera chiamate");
+        System.out.println("6) esci");
+        System.out.println();
+        System.out.print("Inserisci una scelta [1-6]: ");
+        user_choice =Integer.parseInt(in.nextLine());
+		switch(user_choice) {
+			case 1 :
+				System.out.println("Quanto vuoi ricaricare?");
+				int ricar = Integer.parseInt(in.nextLine());
+				phone.rica(ricar);
+				System.out.println("Hai appena ricaricato: "+ ricar);
+				break;
+			case 2 :
+				if (phone.credito <= 0) {
+					System.out.println("Non hai credito");
+					k = 1;
+				} else {
+				System.out.println("Inserisci il numero che vuoi chiamare");
+				String numero = in.nextLine();
+				if(Pattern.matches("[0-9]{10}",numero)==true) {
+					System.out.println( "Hai chiamto il numero: "+numero);			
+					System.out.println("Quanto è durata la chiamata in minuti");
+					double durata = Double.parseDouble(in.nextLine());
+					phone.chiamate(durata);
+				} else {
+					System.out.println("Numero selezionato non valido");
+					//k = 1;
+				}
+				}
+				break;
+			case 3 :
+				phone .saldo();
+				System.out.println("Il tuo saldo è: "+ phone.credito);
+				break;
+			case 4 :
+				phone.getNumeroChiamate();
+				System.out.println("Chiamate fatte: "+ phone.nChiamate);
+				break;
+			case 5 :
+				phone.azzeraChiamate();
+				System.out.println("Azzeramento avvenuto con successo");
+			case 6 :
+				System.out.println("Grazie e Arrivederci");
+				k = 1;
+				break;
+			default :
+				System.out.println("Scelta non valida riprova");
+		}
+		}
+	}
+}
+
+class Cell {
+	double credito;
+	int nChiamate;
+	
+	Cell(double creditoiniziale, int chiamateiniziali) {
+		credito = creditoiniziale;
+		nChiamate = chiamateiniziali;
+	}
+	public void rica(double ricarica) {
+		credito += ricarica;
+	}
+	public void chiamate(double durata) {
+		credito -= 0.20*durata;
+		nChiamate = nChiamate +1;
+	}
+	public double saldo() {
+		return credito;	
+	}
+	public int getNumeroChiamate() {
+		return nChiamate;
+	}
+	public void azzeraChiamate() {
+		nChiamate = 0;
+	}
+}

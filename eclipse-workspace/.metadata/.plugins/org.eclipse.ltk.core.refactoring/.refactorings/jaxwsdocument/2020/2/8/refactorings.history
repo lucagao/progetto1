@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;com.javatpoint&apos; to &apos;jax-ws/src&apos;&#x0D;&#x0A;- Original project: &apos;jaxwsdocument&apos;&#x0D;&#x0A;- Destination element: &apos;jax-ws/src&apos;&#x0D;&#x0A;- Original element: &apos;jaxwsdocument/jaxwsdocument/src/com.javatpoint&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=jax-ws/src" element1="/jaxwsdocument\/src&lt;com.javatpoint" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1582294573596" version="1.0"/>
+</session>

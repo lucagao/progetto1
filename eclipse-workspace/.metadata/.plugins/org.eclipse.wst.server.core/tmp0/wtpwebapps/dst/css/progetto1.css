@@ -1,0 +1,73 @@
+* {box-sizing: border-box;}
+body {
+	text-align: center;
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+
+}
+fieldset {
+	display: inline-block;
+	background-color: royalblue;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	padding: 20px;
+	border: 2px solid black;
+	width: 32%;
+}
+
+legend {
+	font-size: 15px;
+	background-color: violet;
+}
+
+label {
+	display:block;
+	color: sienna;
+	font-weight: bold;
+	background-color: greenyellow;
+	padding: 5px;
+}
+span {
+	color:white;
+}
+select {			
+	width:100%;			/*  select che occupa tutta la fieldset*/
+}
+input[type="text"], input[type="number"] {
+	border: 1px solid black;    /* bordo spesso  */
+	width: 100%;
+	padding: 5px;				/* distanza contenuto dalla forma */ 
+	margin: 15px 0 15px 0;
+}
+select {
+	
+	margin: 15px 0 15px 0;
+}
+#type {
+	margin: 10px 0 10px 0;
+	
+}
+
+input[type="submit"] {
+	color: tomato;
+	border: 1px solid black;
+	background-color: aqua;
+	padding: 10px;
+	display: block;
+	margin: 10px auto;
+	border-radius: 5px;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

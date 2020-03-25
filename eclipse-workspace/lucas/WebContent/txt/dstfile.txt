@@ -1,0 +1,18 @@
+ Nome:paolo 
+ Cognome:mik 
+ Età:23 
+ Sesso:maschio 
+ Nazione:italia 
+ Assenze:34 
+ Presenze:20 
+ Attività:Front-end
+ ---------------------------------------- 
+ Nome:mikela 
+ Cognome:rossi 
+ Età:21 
+ Sesso:femmina 
+ Nazione:francia 
+ Assenze:13 
+ Presenze:24 
+ Attività:Front-end, Back-end
+ ---------------------------------------- 

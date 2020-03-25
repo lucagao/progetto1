@@ -1,0 +1,8 @@
+127.0.0.1 - - [03/Mar/2020:16:58:06 +0100] "GET / HTTP/1.1" 404 709
+0:0:0:0:0:0:0:1 - - [03/Mar/2020:16:58:07 +0100] "GET /dst/introriserva.jsp HTTP/1.1" 200 642
+0:0:0:0:0:0:0:1 - - [03/Mar/2020:16:58:07 +0100] "GET /dst/css/progetto.css HTTP/1.1" 200 862
+0:0:0:0:0:0:0:1 - - [03/Mar/2020:16:59:36 +0100] "GET /dst/progettodiriserva.jsp?size=1 HTTP/1.1" 200 2065
+0:0:0:0:0:0:0:1 - - [03/Mar/2020:16:59:36 +0100] "GET /dst/css/progetto1.css HTTP/1.1" 200 1295
+0:0:0:0:0:0:0:1 - - [03/Mar/2020:17:00:33 +0100] "GET /dst/progettodiriserva.jsp?size=2 HTTP/1.1" 200 3726
+0:0:0:0:0:0:0:1 - - [03/Mar/2020:17:01:36 +0100] "GET /dst/tabellariserva.jsp?lavoratore-1-nome=paolo&lavoratore-1-cognome=mik&lavoratore-1-eta=23&lavoratore-1-sesso=maschio&lavoratore-1-nazione=italia&lavoratore-1-assenze=34&lavoratore-1-presenze=20&lavoratore-1-attivita=Front-end&lavoratore-2-nome=mikela&lavoratore-2-cognome=rossi&lavoratore-2-eta=21&lavoratore-2-sesso=femmina&lavoratore-2-nazione=francia&lavoratore-2-assenze=13&lavoratore-2-presenze=24&lavoratore-2-attivita=Front-end&lavoratore-2-attivita=Back-end HTTP/1.1" 200 1458
+0:0:0:0:0:0:0:1 - - [03/Mar/2020:17:01:36 +0100] "GET /dst/css/tabella.css HTTP/1.1" 200 2775

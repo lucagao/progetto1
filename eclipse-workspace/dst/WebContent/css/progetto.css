@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css?family=Titan+One');
+
+body {
+	text-align:center;
+	background-image:url("https://www.retorica.net/wp-content/uploads/2015/10/copertina.png")
+}
+h1 {
+	font: italic bold 100px;
+	color: brown;
+	margin-top: 10px;
+}
+#d {
+	color:red;
+}
+#s{
+	color:lime;
+}
+#t{
+	color:yellow;
+}
+form {
+    display: inline-block;
+    margin-top:100px;
+    padding: 10px;
+    border: 5px solid navy;
+    box-shadow: 5px 10px #888888;
+    background-color:khaki;
+}
+label {
+	font: italic bold 20px Georgia, serif;
+}
+input[type=number] {
+  	padding: 12px;
+  	border: 1px solid #ccc;
+  	border-radius: 4px;
+}
+input[type=submit] {
+	background-color: #4CAF50;
+  	border: none;
+  	color: white;
+  	padding: 16px 32px;
+  	text-decoration: none;
+  	margin: 4px 2px;
+  	cursor: pointer;
+  	border-radius: 2px;
+}
